@@ -7,7 +7,7 @@ let userName = "";
 const introEven = function introEven() {
 console.log('Welcome to Brain Games!');
 console.log('Answer "yes" if number even otherwise answer "no".\n');
-userName = _readlineSync2.default.question('May I have your name? ');
+userName = readlineSync.default.question('May I have your name? ');
 console.log('Hello ' + userName + '!\n');
 
 logic(counter);
@@ -18,7 +18,7 @@ logic(counter);
 const logic = (c) => {
 
 const randomNumber = getRandomInt(0,10000000);
-const answer = _readlineSync2.default.question(`Qustion: ${randomNumber}  `);
+const answer = readlineSync.default.question(`Qustion: ${randomNumber}  `);
 const trueResult = isEven(randomNumber);
 
 if(answer.localeCompare(trueResult) === 0){
@@ -40,4 +40,3 @@ const getRandomInt = (min,max) => Math.floor(Math.random() * (max - min)) + min;
 
 
 export default introEven;
-
