@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-import introEven from '../games/brain-even';
+import introEven from '../src/games/brain-even';
 introEven();
