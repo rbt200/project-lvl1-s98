@@ -28,7 +28,7 @@ logic(++counter);
 }
 else{
 
-console.log(`${answer} was wrong answer. Correct answer was ${trueResult}.\nLet us try again, ${userName}`);
+console.log(`"${answer}" was wrong answer. Correct answer was "${trueResult}".\nLet us try again, ${userName}`);
 return;
 }
 
