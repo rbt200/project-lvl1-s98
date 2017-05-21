@@ -4,7 +4,12 @@ import getRandomInt from '../random-int';
 let counter = 0;
 let userName = '';
 
-const isEven = (n) => { return n % 2 === 0 ? 'yes' : 'no'; };
+const isEven = (n) => {
+  if (n % 2 === 0) {
+    return 'yes';
+  }
+  return 'no';
+};
 
 const logic = () => {
   const randomNumber = getRandomInt(0, 10000000);
