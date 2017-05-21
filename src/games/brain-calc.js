@@ -7,24 +7,24 @@ let counter = 0;
 const getAction = () => { 
   const actions = ['+','-','*'];
   const actionSingle = getRandomInt(0, 3);
-  return action[actionSingle];
+  return actions[actionSingle];
 };
 
 const logic = () => {
   const firstNum = getRandomInt(1, 11);
   const secondNum = getRandomInt(1, 11);
   const action = getAction();
-  let result ;
+  let trueResult ;
   
   console.log(`Qustion: ${firstNum} ${action} ${secondNum}`);
   const answer = readlineSync.question(`Your answer: `);
   
   switch(action) {
-  case '+':  result = firstNum + secondNum;
+  case '+':  trueResult = firstNum + secondNum;
       break;
-  case '-':  result = firstNum - secondNum;
+  case '-':  trueResult = firstNum - secondNum;
       break;      
-  case '*': result = firstNum * secondNum;      
+  case '*': trueResult = firstNum * secondNum;      
       break;
  }
   
