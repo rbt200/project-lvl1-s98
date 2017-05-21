@@ -6,20 +6,20 @@ let counter = 0;
 
 const getAction = () => { 
   const actions = ['+','-','*'];
-  const res = getRandomInt(0, 3);
+  const actionSingle = getRandomInt(0, 3);
   return res;
 };
 
 const logic = () => {
-  const firstNum = getRandomInt(0, 10000000);
-  const secondNum = getRandomInt(0, 10000000);
+  const firstNum = getRandomInt(1, 11);
+  const secondNum = getRandomInt(1, 11);
   const action = getAction();
   let result ;
   
   console.log(`Qustion: ${firstNum} ${action} ${secondNum}`);
   const answer = readlineSync.question(`Your answer: `);
   
-  switch(action) {
+  switch(actions[actionSingle]) {
   case '+':  result = firstNum + secondNum;
       break;
   case '-':  result = firstNum - secondNum;
