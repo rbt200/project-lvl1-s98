@@ -1,1 +1,2 @@
 import readlineSync from 'readline-sync';
+console.log('Hello,brain-calc!');
