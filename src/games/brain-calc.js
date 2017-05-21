@@ -40,21 +40,6 @@ const logic = () => {
 };
 
 
-
-const logicOld = () => {
-  const randomNumber = getRandomInt(0, 10000000);
-  const answer = readlineSync.question(`Qustion: ${randomNumber}  `);
-  const trueResult = isEven(randomNumber);
-
-  if (answer.localeCompare(trueResult) === 0) {
-    counter += 1;
-    if (counter > 3) { console.log(`Congratulations, ${userName}`); return; }
-    logic(counter += 1);
-  } else {
-    console.log(`"${answer}" was wrong answer. Correct answer was "${trueResult}".\nLet us try again, ${userName}`);
-  }
-};
-
 const introCalc = function introCalc() {
   console.log('Welcome to Brain Games!');
   console.log('What is the result of the expression?\n');
