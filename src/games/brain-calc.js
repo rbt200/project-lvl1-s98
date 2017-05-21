@@ -28,9 +28,9 @@ const logic = () => {
       break;
  }
   
-  if (answer === result) {
+  if (answer === trueResult) {
     counter += 1;
-    if (counter > 3) { console.log(`Congratulations, ${userName}`); return; }
+    if (counter > 3) { console.log(`Congratulations, ${userName}`); }
     logic(counter += 1);
   } else {
     console.log(`"${answer}" was wrong answer. Correct answer was "${result}".\nLet us try again, ${userName}`);
