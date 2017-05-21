@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const magicBox = require('greeting');
-console.log(magicBox());
+
+import * as game from '..';
 import introCalc from '../games/brain-calc';
 
-introCalc();
+game.calc();
