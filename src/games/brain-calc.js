@@ -7,7 +7,7 @@ let counter = 0;
 const getAction = () => { 
   const actions = ['+','-','*'];
   const actionSingle = getRandomInt(0, 3);
-  return res;
+  return action[actionSingle];
 };
 
 const logic = () => {
@@ -19,7 +19,7 @@ const logic = () => {
   console.log(`Qustion: ${firstNum} ${action} ${secondNum}`);
   const answer = readlineSync.question(`Your answer: `);
   
-  switch(actions[actionSingle]) {
+  switch(action) {
   case '+':  result = firstNum + secondNum;
       break;
   case '-':  result = firstNum - secondNum;
