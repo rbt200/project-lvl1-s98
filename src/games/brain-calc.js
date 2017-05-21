@@ -33,7 +33,7 @@ const logic = () => {
     if (counter > 3) { console.log(`Congratulations, ${userName}`); }
     logic(counter += 1);
   } else {
-    console.log(`"${answer}" was wrong answer. Correct answer was "${result}".\nLet us try again, ${userName}`);
+    console.log(`"${answer}" was wrong answer. Correct answer was "${trueResult}".\nLet us try again, ${userName}`);
   }
   
 };
