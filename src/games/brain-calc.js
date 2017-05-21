@@ -28,7 +28,7 @@ const logic = () => {
       break;
  }
   
-  if (answer === trueResult) {
+  if (Number(answer) === Number(trueResult)) {
     counter += 1;
     if (counter > 3) { console.log(`Congratulations, ${userName}`); }
     logic(counter += 1);
