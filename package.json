@@ -1,6 +1,6 @@
 {
   "name": "bgames",
-  "version": "4.2.1",
+  "version": "6.0.0",
   "description": "A set of brain games",
   "main": "index.js",
   "bin": {
