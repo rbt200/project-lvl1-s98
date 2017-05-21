@@ -17,9 +17,8 @@ const logic = () => {
   let trueResult;
   
   console.log(`Qustion: ${firstNum} ${action} ${secondNum}`);
-  const answer = readlineSync.question(`Your answer: `);
-  
-  switch(action) {
+  const answer = readlineSync.question(`Your answer: `);  
+  switch (action) {
   case '+':  trueResult = firstNum + secondNum;
       break;
   case '-':  trueResult = firstNum - secondNum;
