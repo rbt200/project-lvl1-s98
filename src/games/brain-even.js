@@ -1,11 +1,10 @@
 import readlineSync from 'readline-sync';
+import getRandomInt from '../random-int';
 
 let counter = 0;
 let userName = '';
 
 const isEven = (n) => { return n % 2 === 0 ? 'yes' : 'no'; };
-
-const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
 const logic = () => {
   const randomNumber = getRandomInt(0, 10000000);
