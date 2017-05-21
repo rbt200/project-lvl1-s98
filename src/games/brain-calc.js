@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
 
+const userName = '';
+
 const introCalc = function introCalc() {
   console.log('Welcome to Brain Games!');
   console.log('What is the result of the expression?\n');
