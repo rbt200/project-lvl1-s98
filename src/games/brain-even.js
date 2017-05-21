@@ -11,7 +11,7 @@ const logic = () => {
   const answer = readlineSync.question(`Qustion: ${randomNumber}  `);
   const trueResult = isEven(randomNumber);
 
-  if (answer === trueNumber) {
+  if (answer === trueResult) {
     counter += 1;
     if (counter > 3) { console.log(`Congratulations, ${userName}`); return; }
     logic(counter += 1);
