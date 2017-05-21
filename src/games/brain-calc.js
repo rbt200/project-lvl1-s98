@@ -5,7 +5,7 @@ let userName = '';
 let counter = 0;
 
 const getAction = () => { 
-  const actions = ['+','-','*'];
+  const actions = ['+', '-', '*'];
   const actionSingle = getRandomInt(0, 3);
   return actions[actionSingle];
 };
@@ -14,7 +14,7 @@ const logic = () => {
   const firstNum = getRandomInt(1, 11);
   const secondNum = getRandomInt(1, 11);
   const action = getAction();
-  let trueResult ;
+  let trueResult;
   
   console.log(`Qustion: ${firstNum} ${action} ${secondNum}`);
   const answer = readlineSync.question(`Your answer: `);
