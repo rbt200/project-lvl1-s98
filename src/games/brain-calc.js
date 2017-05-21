@@ -8,6 +8,7 @@ const introCalc = function introCalc() {
   console.log('What is the result of the expression?\n');
   userName = readlineSync.question('May I have your name? ');
   console.log(`Hello ${userName}!\n`);
+  console.log(`Question: `);
   
 };
 
