@@ -1,10 +1,5 @@
-import readlineSync from 'readline-sync';
-import getRandomInt from '../random-int';
-
-let userName = '';
-let counter = 1;
-
-// return a unsorted balanced number
+import matrix from '..';
+import getRandomInt from '../random-int.js';
 const getBalancedNum = (ar) => {
   const arr = ar;
   arr.sort();
@@ -19,40 +14,32 @@ const getBalancedNum = (ar) => {
 };
 
 const convertStrArrToIntArr = (n) => {
-  // convert the number into a string
-  const str = n.toString();
-  // convert the string into an array of chars
-  const arr = str.split('');
-  const newArr = [arr.length];
-  for (let i = 0; i < arr.length; i += 1) {
-    newArr[i] = parseInt(arr[i], 10);
-  }
-  return newArr;
+// convert the number into a string
+const str = n.toString();
+// convert the string into an array of chars
+const arr = str.split('');
+const newArr = [arr.length];
+
+for (let i = 0; i < arr.length; i += 1) {
+  newArr[i] = parseInt(arr[i], 10);
+}
+return newArr;
 };
 
 const logic = () => {
   const disbalancedNum = getRandomInt(0, 101);
   const arr = convertStrArrToIntArr(disbalancedNum);
-  console.log(`Question: ${disbalancedNum}`);
-  const answer = readlineSync.question('Your answer: ');
+  const trueResult = getBalancedNum(arr);
 
-  if (answer === getBalancedNum(arr)) {
-    console.log('Correct!');
-    counter += 1;
-    if (counter > 3) { console.log(`Congratulations, ${userName}`); return; }
-    logic();
-  } else {
-    console.log(`'${answer}' was wrong answer. Correct answer was '${getBalancedNum(arr)}'.\nLet us try again, ${userName}`);
-  }
+  const logicData = {
+    question : disbalancedNum,
+    trueResult : trueResult
+  };
+  return logicData;
 };
 
-const introBalance = function introBalance() {
-  console.log('Welcome to Brain Games!');
-  console.log('Balance the given number.\n');
-  userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello ${userName}!\n`);
+const task = 'Balance the given number.'
 
-  logic();
-};
+const balance = () => matrix(task, logic);
 
-export default introBalance;
+export default balance;
