@@ -4,40 +4,55 @@ import getRandomInt from '../random-int';
 let userName = '';
 let counter = 1;
 
-const getGcd = (num1, num2) => {
-  const limit = num1 <= num2 ? num1 : num2;
-  let gcd = 1;
-  for (let i = 1; i <= limit; i += 1) {
-    if (num1 % i === 0 && num2 % i === 0) { gcd = i; }
+// return a unsorted balanced number
+const getBalancedNum = (arr) => {
+  arr.sort();
+  const firstNum = arr[0];
+  const secondNum = arr[arr.length -1];
+  if (firstNum === secondNum || firstNum + 1 === secondNum) {
+  return arr.join('');
   }
-  return gcd;
+  arr[0] += 1;
+  arr[arr.length - 1] -= 1;
+  getBalancedNum(arr);
+};
+
+const convertStrArrToIntArr = (n) => {
+  // convert the number into a string
+  const str = n + '';
+  // convert the string into an array of chars
+  const arr = str.split('');
+  const newArr = [arr.length];
+  for (let i = 0; i < arr.length; i += 1) {
+        newArr[i] = parseInt(arr[i]);
+  }
+  return newArr;
 };
 
 const logic = () => {
-  const firstNum = getRandomInt(0, 101);
-  const secondNum = getRandomInt(0, 101);
-  const trueResult = getGcd(firstNum, secondNum);
-
-  console.log(`Question: ${firstNum}  ${secondNum}`);
+  let disbalancedNum = getRandomInt(0, 1001);
+  const arr = convertStrArrToIntArr(disbalancedNum);
+  console.log(`Question: ${disbalancedNum}`);
   const answer = readlineSync.question('Your answer: ');
+  const trueResult = typeof String(getBalancedNum(arr));
 
-  if (Number(answer) === Number(trueResult)) {
+  if (answer === getBalancedNum(arr)) {
     console.log('Correct!');
     counter += 1;
     if (counter > 3) { console.log(`Congratulations, ${userName}`); return; }
     logic();
   } else {
-    console.log(`'${answer}' was wrong answer. Correct answer was '${trueResult}'.\nLet us try again, ${userName}`);
+    console.log(`'${answer}' was wrong answer. Correct answer was '${getBalancedNum(arr)}'.\nLet us try again, ${userName}`);
   }
 };
 
-const introCalc = function introCalc() {
+const introBalance = function introBalance() {
   console.log('Welcome to Brain Games!');
-  console.log('Find the greatest common divisor of given numbers.\n');
+  console.log('Balance the given number.\n');
   userName = readlineSync.question('May I have your name? ');
   console.log(`Hello ${userName}!\n`);
 
   logic();
 };
 
-export default introCalc;
+export default introBalance;
