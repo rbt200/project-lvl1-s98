@@ -7,4 +7,4 @@ import introBalance from '../src/games/brain-balance';
 export const calc = () => introCalc();
 export const even = () => introEven();
 export const gcd = () => introGcd();
-export const gcd = () => introBalance();
+export const balance = () => introBalance();
