@@ -13,7 +13,6 @@ const getBalancedNum = (ar) => {
     getBalancedNum(arr);
   }
   const result = arr.join('').toString();
-  console.log(typeof result);
   return result;
 };
 
@@ -32,7 +31,7 @@ const convertStrArrToIntArr = (n) => {
 };
 
 const logic = () => {
-  const disbalancedNum = getRandomInt(0, 101);
+  const disbalancedNum = getRandomInt(0, 1001);
   const arr = convertStrArrToIntArr(disbalancedNum);
   const trueResult = getBalancedNum(arr);
 
