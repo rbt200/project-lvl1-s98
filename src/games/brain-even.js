@@ -1,8 +1,6 @@
-import readlineSync from 'readline-sync';
+import matrix from '..';
 import getRandomInt from '../random-int';
 
-let counter = 0;
-let userName = '';
 
 const isEven = (n) => {
   if (n % 2 === 0) {
@@ -11,27 +9,21 @@ const isEven = (n) => {
   return 'no';
 };
 
+
 const logic = () => {
   const randomNumber = getRandomInt(0, 10000000);
-  const answer = readlineSync.question(`Qustion: ${randomNumber}  `);
   const trueResult = isEven(randomNumber);
 
-  if (answer === trueResult) {
-    counter += 1;
-    if (counter > 3) { console.log(`Congratulations, ${userName}`); return; }
-    logic(counter += 1);
-  } else {
-    console.log(`"${answer}" was wrong answer. Correct answer was "${trueResult}".\nLet us try again, ${userName}`);
-  }
+  const logicData = {
+    question: randomNumber.toString(),
+    trueResult: trueResult.toString(),
+  };
+  return logicData;
 };
 
-const introEven = function introEven() {
-  console.log('Welcome to Brain Games!');
-  console.log('Answer "yes" if number even otherwise answer "no".\n');
-  userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello ${userName}!\n`);
 
-  logic(counter);
-};
+const task = 'Answer "yes" if number even otherwise answer "no".';
 
-export default introEven;
+const even = () => matrix(task, logic);
+
+export default even;

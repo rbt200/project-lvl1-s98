@@ -11,26 +11,26 @@ const wellcome = (task) => {
 };
 
 const flowOfGame = (logic) => {
-	const data = logic();
-	const question = data.question;
-	const trueResult = data.trueResult;
+  const data = logic();
+  const question = data.question;
+  const trueResult = data.trueResult;
 
-	console.log(`Question: ${question}`);
-	const answer = readlineSync.question('Your answer: ');
+  console.log(`Question: ${question}`);
+  const answer = readlineSync.question('Your answer: ');
 
-	if (answer === trueResult) {
-		console.log('Correct!');
-		counter += 1;
+  if (answer === trueResult) {
+    console.log('Correct!');
+    counter += 1;
     if (counter > 3) { console.log(`Congratulations, ${userName}`); return; }
     flowOfGame(logic);
-} else {
-	console.log(`'${answer}' was wrong answer. Correct answer was '${trueResult}'.\nLet us try again, ${userName}`);
-}
+  } else {
+    console.log(`'${answer}' was wrong answer. Correct answer was '${trueResult}'.\nLet us try again, ${userName}`);
+  }
 };
 
 const matrix = (task, logic) => {
-	wellcome(task);
-	return flowOfGame(logic);
+  wellcome(task);
+  return flowOfGame(logic);
 };
 
 export default matrix;

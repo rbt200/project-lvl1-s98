@@ -1,5 +1,7 @@
 import matrix from '..';
-import getRandomInt from '../random-int.js';
+import getRandomInt from '../random-int';
+
+
 const getBalancedNum = (ar) => {
   const arr = ar;
   arr.sort();
@@ -10,20 +12,23 @@ const getBalancedNum = (ar) => {
     arr[arr.length - 1] -= 1;
     getBalancedNum(arr);
   }
-  return arr.join('');
+  const result = arr.join('').toString();
+  console.log(typeof result);
+  return result;
 };
+
 
 const convertStrArrToIntArr = (n) => {
 // convert the number into a string
-const str = n.toString();
+  const str = n.toString();
 // convert the string into an array of chars
-const arr = str.split('');
-const newArr = [arr.length];
+  const arr = str.split('');
+  const newArr = [arr.length];
 
-for (let i = 0; i < arr.length; i += 1) {
-  newArr[i] = parseInt(arr[i], 10);
-}
-return newArr;
+  for (let i = 0; i < arr.length; i += 1) {
+    newArr[i] = parseInt(arr[i], 10);
+  }
+  return newArr;
 };
 
 const logic = () => {
@@ -32,13 +37,13 @@ const logic = () => {
   const trueResult = getBalancedNum(arr);
 
   const logicData = {
-    question : disbalancedNum,
-    trueResult : trueResult
+    question: disbalancedNum,
+    trueResult: trueResult.toString(),
   };
   return logicData;
 };
 
-const task = 'Balance the given number.'
+const task = 'Balance the given number.';
 
 const balance = () => matrix(task, logic);
 

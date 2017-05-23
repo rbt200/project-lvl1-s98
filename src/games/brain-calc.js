@@ -1,8 +1,5 @@
-import readlineSync from 'readline-sync';
+import matrix from '..';
 import getRandomInt from '../random-int';
-
-let userName = '';
-let counter = 0;
 
 const getAction = () => {
   const actions = ['+', '-', '*'];
@@ -15,8 +12,6 @@ const logic = () => {
   const secondNum = getRandomInt(1, 11);
   const action = getAction();
   let trueResult;
-  console.log(`Qustion: ${firstNum} ${action} ${secondNum}`);
-  const answer = readlineSync.question('Your answer: ');
 
   switch (action) {
     case '+': trueResult = firstNum + secondNum;
@@ -28,24 +23,15 @@ const logic = () => {
     default:
   }
 
-  if (Number(answer) === Number(trueResult)) {
-    console.log('Correct!');
-    counter += 1;
-    if (counter > 3) { console.log(`Congratulations, ${userName}`); return; }
-    logic(counter += 1);
-  } else {
-    console.log(`'${answer}' was wrong answer. Correct answer was '${trueResult}'.\nLet us try again, ${userName}`);
-  }
+  const logicData = {
+    question: `${firstNum} ${action} ${secondNum}`,
+    trueResult: trueResult.toString(),
+  };
+  return logicData;
 };
 
-const introCalc = function introCalc() {
-  console.log('Welcome to Brain Games!');
-  console.log('What is the result of the expression?\n');
-  userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello ${userName}!\n`);
-  console.log('Question: ');
+const task = 'What is the result of the expression?';
 
-  logic();
-};
+const calc = () => matrix(task, logic);
 
-export default introCalc;
+export default calc;
