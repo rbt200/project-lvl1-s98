@@ -9,26 +9,28 @@ const welcome = (task) => {
   console.log(`Hello ${userName}!\n`);
 };
 
+
 const startGameProcess = (dataForGame) => {
-  const iter = (acc) => {
-  if (acc === 3) { console.log(`Congratulations, ${userName}`); return; }
+  const iter = (a) => {
+    let acc = a;
+    if (acc === 3) { console.log(`Congratulations, ${userName}`); return; }
 
-  const data = dataForGame();
-  const question = data.question;
-  const trueResult = data.trueResult;
+    const data = dataForGame();
+    const question = data.question;
+    const trueResult = data.trueResult;
 
-  console.log(`Question: ${question}`);
-  const answer = readlineSync.question('Your answer: ');
+    console.log(`Question: ${question}`);
+    const answer = readlineSync.question('Your answer: ');
 
-  if (answer === trueResult) {
-  console.log('Correct!');
-  acc += 1;
-  iter(acc);
-  } else {
-    console.log(`'${answer}' was wrong answer. Correct answer was '${trueResult}'.\nLet us try again, ${userName}`);
-    return;
-  }
-};
+    if (answer === trueResult) {
+      console.log('Correct!');
+      acc += 1;
+      iter(acc);
+    } else {
+      console.log(`'${answer}' was wrong answer. Correct answer was '${trueResult}'.\n`);
+      console.log(`Let us try again, ${userName}`);
+    }
+  };
   iter(0);
 };
 
