@@ -1,4 +1,4 @@
-import matrix from '..';
+import beginGame from '..';
 import getRandomInt from '../random-int';
 
 
@@ -12,7 +12,7 @@ const getGcd = (num1, num2) => {
 };
 
 
-const logic = () => {
+const getGameData = () => {
   const firstNum = getRandomInt(0, 101);
   const secondNum = getRandomInt(0, 101);
   const trueResult = getGcd(firstNum, secondNum);
@@ -27,6 +27,6 @@ const logic = () => {
 
 const task = 'Find the greatest common divisor of given numbers.';
 
-const gcd = () => matrix(task, logic);
+const gcd = () => beginGame(task, getGameData);
 
 export default gcd;

@@ -1,17 +1,19 @@
 import readlineSync from 'readline-sync';
 
-let counter = 1;
 let userName = '';
 
-const wellcome = (task) => {
+const welcome = (task) => {
   console.log('Welcome to Brain Games!');
   console.log(`${task}`);
   userName = readlineSync.question('\nMay I have your name? ');
   console.log(`Hello ${userName}!\n`);
 };
 
-const flowOfGame = (logic) => {
-  const data = logic();
+const startGameProcess = (dataForGame) => {
+  const iter = (acc) => {
+  if (acc === 3) { console.log(`Congratulations, ${userName}`); return; }
+
+  const data = dataForGame();
   const question = data.question;
   const trueResult = data.trueResult;
 
@@ -19,18 +21,20 @@ const flowOfGame = (logic) => {
   const answer = readlineSync.question('Your answer: ');
 
   if (answer === trueResult) {
-    console.log('Correct!');
-    counter += 1;
-    if (counter > 3) { console.log(`Congratulations, ${userName}`); return; }
-    flowOfGame(logic);
+  console.log('Correct!');
+  acc += 1;
+  iter(acc);
   } else {
     console.log(`'${answer}' was wrong answer. Correct answer was '${trueResult}'.\nLet us try again, ${userName}`);
+    return;
   }
 };
-
-const matrix = (task, logic) => {
-  wellcome(task);
-  return flowOfGame(logic);
+  iter(0);
 };
 
-export default matrix;
+const beginGame = (task, dataForGame) => {
+  welcome(task);
+  return startGameProcess(dataForGame);
+};
+
+export default beginGame;

@@ -1,4 +1,4 @@
-import matrix from '..';
+import beginGame from '..';
 import getRandomInt from '../random-int';
 
 
@@ -10,8 +10,8 @@ const isEven = (n) => {
 };
 
 
-const logic = () => {
-  const randomNumber = getRandomInt(0, 10000000);
+const getGameData = () => {
+  const randomNumber = getRandomInt(0, 100);
   const trueResult = isEven(randomNumber);
 
   const logicData = {
@@ -24,6 +24,6 @@ const logic = () => {
 
 const task = 'Answer "yes" if number even otherwise answer "no".';
 
-const even = () => matrix(task, logic);
+const even = () => beginGame(task, getGameData);
 
 export default even;

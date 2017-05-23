@@ -1,4 +1,4 @@
-import matrix from '..';
+import beginGame from '..';
 import getRandomInt from '../random-int';
 
 
@@ -17,7 +17,7 @@ const getBalancedNum = (ar) => {
 };
 
 
-const convertStrArrToIntArr = (n) => {
+const convertIntToArr = (n) => {
 // convert the number into a string
   const str = n.toString();
 // convert the string into an array of chars
@@ -30,9 +30,9 @@ const convertStrArrToIntArr = (n) => {
   return newArr;
 };
 
-const logic = () => {
+const getGameData = () => {
   const disbalancedNum = getRandomInt(0, 1001);
-  const arr = convertStrArrToIntArr(disbalancedNum);
+  const arr = convertIntToArr(disbalancedNum);
   const trueResult = getBalancedNum(arr);
 
   const logicData = {
@@ -44,6 +44,6 @@ const logic = () => {
 
 const task = 'Balance the given number.';
 
-const balance = () => matrix(task, logic);
+const balance = () => beginGame(task, getGameData);
 
 export default balance;

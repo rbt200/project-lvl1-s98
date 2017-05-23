@@ -1,4 +1,4 @@
-import matrix from '..';
+import beginGame from '..';
 import getRandomInt from '../random-int';
 
 const getAction = () => {
@@ -7,7 +7,7 @@ const getAction = () => {
   return actions[actionSingle];
 };
 
-const logic = () => {
+const getGameData = () => {
   const firstNum = getRandomInt(1, 11);
   const secondNum = getRandomInt(1, 11);
   const action = getAction();
@@ -32,6 +32,6 @@ const logic = () => {
 
 const task = 'What is the result of the expression?';
 
-const calc = () => matrix(task, logic);
+const calc = () => beginGame(task, getGameData);
 
 export default calc;
