@@ -6,3 +6,5 @@ publish:
 	npm publish
 lint:
 	npm run eslint -- src
+test:
+	npm run babel-node -- src/test.js
