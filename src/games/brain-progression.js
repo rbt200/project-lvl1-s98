@@ -24,7 +24,7 @@ const hideNumber = (arr) => {
   return arr[rand];
 };
 
-const displayArithmeticProgression = (a, num) => {
+const getArithmeticProgression = (a, num) => {
   const arr = a;
   const pos = arr.indexOf(num);
   arr[pos] = '..';
@@ -34,7 +34,7 @@ const displayArithmeticProgression = (a, num) => {
 const getGameData = () => {
   const progression = createArithmeticProgression();
   const trueResult = hideNumber(progression);
-  const displayProgression = displayArithmeticProgression(progression, trueResult);
+  const displayProgression = getArithmeticProgression(progression, trueResult);
   const logicData = {
     question: displayProgression.toString(),
     trueResult: trueResult.toString(),
