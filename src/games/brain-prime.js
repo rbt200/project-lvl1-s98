@@ -1,7 +1,7 @@
 import beginGame from '..';
 import getRandomInt from '../random-int';
 
-const isNumberPrime = (n) => {
+export const isNumberPrime = (n) => {
   const origin = n;
   for (let i = 2; i < origin; i += 1) {
     if (origin % i === 0) { return false; }

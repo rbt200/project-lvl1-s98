@@ -27,3 +27,5 @@ const task = 'Answer "yes" if number even otherwise answer "no".';
 const even = () => beginGame(task, getGameData);
 
 export default even;
+
+export { isEven, getGameData };
